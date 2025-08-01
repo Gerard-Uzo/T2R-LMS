@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Tests | Trade2Retire</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/student-tests.css">
+    <link rel="icon" type="image/png" href="assets/T2Rlogo.png">
+    <style>
+        /* Mobile menu styles */
+        .mobile-menu-btn {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: #fff;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+                z-index: 1000;
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+
+            .nav-link {
+                padding: 10px 0;
+                border-bottom: 1px solid #eee;
+            }
+
+            .user-dropdown {
+                margin-top: 10px;
+            }
+        }
+
+        /* Back to Dashboard button */
+        .back-to-dashboard {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            text-decoration: none;
+            color: #333;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .back-to-dashboard:hover {
+            background-color: #f5f5f5;
+        }
+
+        @media (max-width: 768px) {
+            .back-to-dashboard {
+                margin-bottom: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <nav class="main-nav">
+            <div class="nav-brand">
+                <i class="fas fa-graduation-cap brand-icon"></i>
+                <a href="index.html" class="brand-link">Trade2Retire</a>
+            </div>
+            <div class="nav-links">
+                <a href="dashboard.htm" class="nav-link">Dashboard</a>
+                <a href="course-list.htm" class="nav-link">My Courses</a>
+                <a href="student-tests.htm" class="nav-link active">My Tests</a>
+                <a href="progress.htm" class="nav-link">Progress</a>
+                <div id="userMenu" class="user-dropdown">
+                    <button class="user-btn">
+                        <img src="assets/default-avatar.jpg" alt="User" class="user-avatar">
+                        <span id="usernameDisplay">User</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="dashboard.htm" class="dropdown-item"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                        <a href="profile.htm" class="dropdown-item"><i class="fas fa-user"></i> Profile</a>
+                        <a href="settings.htm" class="dropdown-item"><i class="fas fa-cog"></i> Settings</a>
+                        <a href="#" class="dropdown-item" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                    </div>
+                </div>
+            </div>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+
+        <main class="student-tests-page">
+            <div class="tests-header">
+                <h1>My Tests & Quizzes</h1>
+                <a href="dashboard.htm" class="btn btn-outline back-to-dashboard">
+                    <i class="fas fa-arrow-left"></i> Back to Dashboard
+                </a>
+                <div class="tabs">
+                    <button class="tab-btn active" data-tab="available">Available Tests</button>
+                    <button class="tab-btn" data-tab="completed">Completed Tests</button>
+                </div>
+            </div>
+
+            <div class="tab-content active" id="available-tests">
+                <div id="availableTests" class="tests-grid">
+                    <!-- Will be populated by JavaScript -->
+                </div>
+            </div>
+
+            <div class="tab-content" id="completed-tests">
+                <div id="completedTests" class="tests-list">
+                    <!-- Will be populated by JavaScript -->
+                </div>
+            </div>
+        </main>
+
+        <!-- Test Taking Modal -->
+        <div class="modal" id="testModal">
+            <div class="modal-content test-modal">
+                <div class="test-header">
+                    <h2 id="testTitle">Test Title</h2>
+                    <div class="test-timer">
+                        <i class="fas fa-clock"></i>
+                        <span id="testTimer">00:30:00</span>
+                    </div>
+                    <button class="close-btn">&times;</button>
+                </div>
+                <div class="test-progress">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="testProgressBar"></div>
+                    </div>
+                    <span id="progressText">Question 1 of 10</span>
+                </div>
+                <div class="test-body" id="testQuestions">
+                    <!-- Questions will be loaded here -->
+                </div>
+                <div class="test-footer">
+                    <button class="btn btn-outline" id="prevQuestionBtn" disabled>Previous</button>
+                    <button class="btn btn-primary" id="nextQuestionBtn">Next</button>
+                    <button class="btn btn-danger" id="submitTestBtn">Submit Test</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Test Results Modal -->
+        <div class="modal" id="testResultsModal">
+            <div class="modal-content results-modal">
+                <div class="results-header">
+                    <h2>Test Results</h2>
+                    <div class="result-score">
+                        <div class="score-circle" id="resultScoreCircle">85%</div>
+                        <span id="resultStatusText">Passed</span>
+                    </div>
+                    <button class="close-btn">&times;</button>
+                </div>
+                <div class="results-summary">
+                    <div class="summary-item">
+                        <span>Questions:</span>
+                        <span id="resultsQuestionCount">0</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Correct Answers:</span>
+                        <span id="resultsCorrectCount">0</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Time Spent:</span>
+                        <span id="resultsTimeSpent">00:00</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Passing Score:</span>
+                        <span id="resultsPassingScore">70%</span>
+                    </div>
+                </div>
+                <div class="results-details">
+                    <h3>Question Review</h3>
+                    <div class="questions-review" id="questionsReview">
+                        <!-- Will be populated by JavaScript -->
+                    </div>
+                </div>
+                <div class="results-footer">
+                    <button class="btn btn-primary close-results-btn">Close</button>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            // Mobile menu toggle functionality
+            document.addEventListener('DOMContentLoaded', function() {
+                const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+                const navLinks = document.querySelector('.nav-links');
+
+                if (mobileMenuBtn && navLinks) {
+                    mobileMenuBtn.addEventListener('click', function() {
+                        navLinks.classList.toggle('show');
+                    });
+                }
+
+                // Close mobile menu when a nav link is clicked (for better UX)
+                const navLinkItems = document.querySelectorAll('.nav-link');
+                navLinkItems.forEach(link => {
+                    link.addEventListener('click', function() {
+                        navLinks.classList.remove('show');
+                    });
+                });
+            });
+        </script>
+        <script src="js/student-tests.js"></script>
+    </div>
+</body>
+</html>

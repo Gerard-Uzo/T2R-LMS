@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Login | Trade2Retire</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/auth.css">
+    <link rel="icon" type="image/png" href="assets/T2Rlogo.png">
+    <script type="module" src="js/firebase.js"></script>
+    <script type="module" src="js/auth.js"></script>
+</head>
+
+<body>
+    <div class="app-container">
+        <nav class="main-nav">
+            <div class="nav-brand">
+                <i class="fas fa-graduation-cap brand-icon"></i>
+                <a href="index.html" class="brand-link">Trade2Retire</a>
+            </div>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <div id="authLinks">
+                    <a href="login.htm" class="nav-link auth-link active">Login</a>
+                    <a href="register.htm" class="nav-link auth-link primary">Register</a>
+                </div>
+            </div>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+
+        <div class="auth-container">
+            <div class="auth-card">
+                <div class="auth-header">
+                    <i class="fas fa-graduation-cap brand-icon"></i>
+                    <h2>Student Login</h2>
+                    <p>Access your courses and learning materials</p>
+                </div>
+
+                <form id="loginForm" class="auth-form">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="password" name="password" placeholder="Enter your password"
+                                required>
+                        </div>
+                        <div class="form-extra">
+                            <a href="#" class="text-link">Forgot password?</a>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-block">Login</button>
+
+                    <div class="auth-footer">
+                        <p>Don't have an account? <a href="register.htm" class="text-link">Register</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <footer class="main-footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-brand">
+                        <i class="fas fa-graduation-cap brand-icon"></i>
+                        <span>Trade2Retire</span>
+                    </div>
+                    <div class="footer-links">
+                        <div class="link-group">
+                            <h4>Learn</h4>
+                            <a href="course-list.htm">Courses</a>
+                            <a href="#">Tutorials</a>
+                            <a href="#">Resources</a>
+                        </div>
+                        <div class="link-group">
+                            <h4>Company</h4>
+                            <a href="https://trade2retire.org/about/">About</a>
+                            <a href="https://trade2retire.org/disclaimer/">Disclaimer</a>
+                            <a href="https://wa.me/+2349161419928">Contact</a>
+                        </div>
+                        <div class="link-group">
+                            <h4>Support</h4>
+                            <a href="https://wa.me/2348067056395" target="_blank">Help Center</a>
+                            <a href="faq.htm">FAQ</a>
+                            <a href="https://chat.whatsapp.com/GhYt7VgvVfBFYwyvecnIlj?mode=ac_c"
+                                target="_blank">Community</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2025 Trade2Retire. All rights reserved.</p>
+                    <div class="social-links">
+                        <a href="https://x.com/Trade2Retire_"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.facebook.com/Trade2Retire"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://www.instagram.com/trade2retire_"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script src="js/auth-state.js"></script>
+    <script src="js/main.js"></script>
+    <script type="module">
+        import { initAuthStateObserver } from './js/firebase-config.js';
+        initAuthStateObserver();
+    </script>
+    <script type="module">
+        // Add this to ensure auth state is initialized
+        import { auth } from './js/firebase-config.js';
+        import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
+
+        onAuthStateChanged(auth, (user) => {
+            const event = new CustomEvent('authStateChanged', { detail: user });
+            window.dispatchEvent(event);
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Registration | Trade2Retire</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/auth.css">
+    <link rel="icon" type="image/png" href="assets/T2Rlogo.png">
+</head>
+<body>
+    <div class="app-container">
+        <nav class="main-nav">
+            <div class="nav-brand">
+                <i class="fas fa-graduation-cap brand-icon"></i>
+                <a href="index.html" class="brand-link">Trade2Retire</a>
+            </div>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="admin-login.htm" class="nav-link">Admin Login</a>
+            </div>
+        </nav>
+
+        <div class="auth-container">
+            <div class="auth-card">
+                <div class="auth-header">
+                    <i class="fas fa-user-shield brand-icon"></i>
+                    <h2>Admin Registration</h2>
+                    <p>Create your admin account</p>
+                </div>
+
+                <form id="adminRegisterForm" class="auth-form">
+                    <div class="form-group">
+                        <label for="fullName">Full Name</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-user"></i>
+                            <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" id="email" name="email" placeholder="username@trade2retire.com" required>
+                        </div>
+                        <p class="password-hint">Must use @trade2retire.com email</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="password" name="password" placeholder="Enter password" required>
+                        </div>
+                        <p class="password-hint">Minimum 8 characters</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirm Password</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm password" required>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-block">Register</button>
+
+                    <div class="auth-footer">
+                        <p>Already have an account? <a href="admin-login.htm" class="text-link">Login</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <footer class="main-footer">
+            <!-- Same footer as other pages -->
+        </footer>
+    </div>
+
+    <script src="js/admin-auth.js"></script>
+</body>
+</html>

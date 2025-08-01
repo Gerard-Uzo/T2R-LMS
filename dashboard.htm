@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Trade2Retire</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="icon" type="image/png" href="assets/T2Rlogo.png">
+</head>
+<body>
+    <div class="app-container">
+        <nav class="main-nav">
+            <div class="nav-brand">
+                <i class="fas fa-graduation-cap brand-icon"></i>
+                <a href="index.html" class="brand-link">Trade2Retire</a>
+            </div>
+            <div class="nav-links">
+                <a href="dashboard.htm" class="nav-link active">Dashboard</a>
+                <a href="course-list.htm" class="nav-link">My Courses</a>
+                <a href="student-tests.htm" class="nav-link">My Tests</a>
+                <a href="progress.htm" class="nav-link">Progress</a>
+                <div id="userMenu" class="user-dropdown">
+                    <button class="user-btn">
+                        <img src="assets/default-avatar.jpg" alt="User" class="user-avatar">
+                        <span id="usernameDisplay">User</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="dashboard.htm" class="dropdown-item"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                        <a href="profile.htm" class="dropdown-item"><i class="fas fa-user"></i> Profile</a>
+                        <a href="settings.htm" class="dropdown-item"><i class="fas fa-cog"></i> Settings</a>
+                        <a href="#" class="dropdown-item" id="logoutBtn" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                    </div>
+                </div>
+            </div>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+
+        <main class="dashboard-layout">
+            <div class="dashboard-sidebar">
+                <div class="sidebar-header">
+                    <div class="user-info">
+                        <img src="assets/default-avatar.jpg" alt="User" class="user-avatar-large" id="sidebarAvatar">
+                        <h3 id="sidebarUsername">User</h3>
+                        <p>Learner</p>
+                    </div>
+                </div>
+                <div class="sidebar-menu">
+                    <a href="dashboard.htm" class="sidebar-link active">
+                        <i class="fas fa-home"></i>
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="course-list.htm" class="sidebar-link">
+                        <i class="fas fa-book-open"></i>
+                        <span>My Courses</span>
+                    </a>
+                    <a href="student-tests.htm" class="sidebar-link">
+                        <i class="fas fa-clipboard-check"></i>
+                        <span>My Tests</span>
+                    </a>
+                    <a href="progress.htm" class="sidebar-link">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Progress</span>
+                    </a>
+                    <a href="certificates.htm" class="sidebar-link">
+                        <i class="fas fa-certificate"></i>
+                        <span>Certificates</span>
+                    </a>
+                    <a href="settings.htm" class="sidebar-link">
+                        <i class="fas fa-cog"></i>
+                        <span>Settings</span>
+                    <a href="#" class="dropdown-item" id="logoutBtn" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                    </a>
+                </div>
+            </div>
+
+            <div class="dashboard-main">
+                <div class="welcome-banner">
+                    <h1>Welcome back, <span id="welcomeUsername">User</span>!</h1>
+                    <p>Continue your learning journey with these recommended courses</p>
+                </div>
+
+                <section class="courses-section">
+                    <h2 class="section-title">Continue Learning</h2>
+                    <div class="courses-grid">
+                        <div class="course-card" onclick="window.location.href='courses-course-1.htm'">
+                            <div class="course-image" style="background-image: url('assets/NAS100_2025-04-23_18-32-28.png');"></div>
+                            <div class="course-details">
+                                <h3>CRT</h3>
+                                <p class="course-instructor">By Bishop Fisayo</p>
+                                <div class="course-progress">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 65%;"></div>
+                                    </div>
+                                    <span>65% Complete</span>
+                                </div>
+                                <button class="btn btn-primary btn-sm">Continue</button>
+                            </div>
+                        </div>
+                        <div class="course-card" onclick="window.location.href='courses-course-1.htm'">
+                            <div class="course-image" style="background-image: url('assets/psych.png');"></div>
+                            <div class="course-details">
+                                <h3>Psychology Of Trading</h3>
+                                <p class="course-instructor">By Ebitimi Oglafa</p>
+                                <div class="course-progress">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 30%;"></div>
+                                    </div>
+                                    <span>30% Complete</span>
+                                </div>
+                                <button class="btn btn-primary btn-sm">Continue</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="courses-section">
+                    <h2 class="section-title">Recommended For You</h2>
+                    <div class="courses-grid">
+                        <div class="course-card" onclick="window.location.href='courses-course-1.htm'">
+                            <div class="course-image" style="background-image: url('assets/gold master class.png');"></div>
+                            <div class="course-details">
+                                <h3>Gold Masterclass</h3>
+                                <p class="course-instructor">By Phillip Ajaebili</p>
+                                <div class="course-meta">
+                                    <span><i class="fas fa-video"></i> 12 Lessons</span>
+                                    <span><i class="fas fa-clock"></i> 4.5 Hours</span>
+                                </div>
+                                <button class="btn btn-outline btn-sm">Enroll Now</button>
+                            </div>
+                        </div>
+                        <div class="course-card" onclick="window.location.href='courses-course-1.htm'">
+                            <div class="course-image" style="background-image: url('assets/NAS100_2025-04-23_18-32-28.png');"></div>
+                            <div class="course-details">
+                                <h3>Departure Leg</h3>
+                                <p class="course-instructor">By Kufre</p>
+                                <div class="course-meta">
+                                    <span><i class="fas fa-video"></i> 8 Lessons</span>
+                                    <span><i class="fas fa-clock"></i> 3 Hours</span>
+                                </div>
+                                <button class="btn btn-outline btn-sm">Enroll Now</button>
+                            </div>
+                        </div>
+                        <div class="course-card" onclick="window.location.href='courses-course-1.htm'">
+                            <div class="course-image" style="background-image: url('assets/NAS100_2025-04-23_18-32-28.png');"></div>
+                            <div class="course-details">
+                                <h3>Trading For Beginners</h3>
+                                <p class="course-instructor">By Preye</p>
+                                <div class="course-meta">
+                                    <span><i class="fas fa-video"></i> 15 Lessons</span>
+                                    <span><i class="fas fa-clock"></i> 6 Hours</span>
+                                </div>
+                                <button class="btn btn-outline btn-sm">Enroll Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="courses-section">
+                    <h2 class="section-title">My Tests</h2>
+                    <div class="tests-preview">
+                        <div class="test-preview-card">
+                            <h3>Upcoming Tests</h3>
+                            <div id="upcomingTestsList">
+                                <!-- Will be populated by JavaScript -->
+                            </div>
+                            <a href="student-tests.htm" class="btn btn-outline btn-sm">View All Tests</a>
+                        </div>
+                        <div class="test-preview-card">
+                            <h3>Recent Results</h3>
+                            <div id="recentResultsList">
+                                <!-- Will be populated by JavaScript -->
+                            </div>
+                            <a href="student-tests.htm" class="btn btn-outline btn-sm">View All Results</a>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <footer class="main-footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-brand">
+                        <i class="fas fa-graduation-cap brand-icon"></i>
+                        <span>Trade2Retire</span>
+                    </div>
+                    <div class="footer-links">
+                        <div class="link-group">
+                            <h4>Learn</h4>
+                            <a href="course-list.htm">Courses</a>
+                            <a href="#">Tutorials</a>
+                            <a href="#">Resources</a>
+                        </div>
+                        <div class="link-group">
+                            <h4>Company</h4>
+                            <a href="https://trade2retire.org/about/">About</a>
+                            <a href="https://trade2retire.org/disclaimer/">Disclaimer</a>
+                            <a href="https://wa.me/+2349161419928">Contact</a>
+                        </div>
+                        <div class="link-group">
+                            <h4>Support</h4>
+                            <a href="https://wa.me/2348067056395" target="_blank">Help Center</a> 
+                            <a href="faq.htm">FAQ</a>
+                            <a href="https://chat.whatsapp.com/GhYt7VgvVfBFYwyvecnIlj?mode=ac_c"
+                                target="_blank">Community</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2025 Trade2Retire. All rights reserved.</p>
+                    <div class="social-links">
+                        <a href="https://x.com/Trade2Retire_"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.facebook.com/Trade2Retire"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://www.instagram.com/trade2retire_"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-analytics.js";
+      const firebaseConfig = {
+        apiKey: "AIzaSyDgFEObhGb7pTqoNPc2PljcWrFN4vYm-qg",
+        authDomain: "t2r-lms.firebaseapp.com",
+        projectId: "t2r-lms",
+        storageBucket: "t2r-lms.firebasestorage.app",
+        messagingSenderId: "684814093970",
+        appId: "1:684814093970:web:f6ec43e88106e74695604b",
+        measurementId: "G-ZDJ1KEDGQ4"
+      };
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
+    </script>
+    <script src="js/auth-state.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

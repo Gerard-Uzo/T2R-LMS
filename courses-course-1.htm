@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paychology Of Trading | Trade2Retire</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/course.css">
+    <link rel="icon" type="image/png" href="assets/T2Rlogo.png">
+</head>
+<body>
+    <div class="app-container">
+        <nav class="main-nav">
+            <div class="nav-brand">
+                <i class="fas fa-graduation-cap brand-icon"></i>
+                <a href="index.html" class="brand-link">Trade2Retire</a>
+            </div>
+            <div class="nav-links">
+                <a href="dashboard.htm" class="nav-link">Dashboard</a>
+                <a href="course-list.htm" class="nav-link">My Courses</a>
+                <a href="progress.htm" class="nav-link">Progress</a>
+                <div id="userMenu" class="user-dropdown">
+                    <button class="user-btn">
+                        <img src="assets/default-avatar.jpg" alt="User" class="user-avatar">
+                        <span id="usernameDisplay">User</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="dashboard.htm" class="dropdown-item"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                        <a href="profile.htm" class="dropdown-item"><i class="fas fa-user"></i> Profile</a>
+                        <a href="settings.htm" class="dropdown-item"><i class="fas fa-cog"></i> Settings</a>
+                        <a href="#" class="dropdown-item" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                    </div>
+                </div>
+            </div>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+
+        <main class="course-page">
+            <div class="course-hero">
+                <div class="hero-content">
+                    <h1>Psychology Of Trading</h1>
+                    <p class="instructor">By Ebitimi Oglafa</p>
+                    <div class="course-stats">
+                        <span><i class="fas fa-star"></i> 4.8 (120 reviews)</span>
+                        <span><i class="fas fa-users"></i> 850 students</span>
+                        <span><i class="fas fa-clock"></i> 32 hours</span>
+                    </div>
+                    <div class="hero-actions">
+                        <button class="btn btn-primary">Enroll Now</button>
+                        <button class="btn btn-outline">Add to Wishlist</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="course-content">
+                <div class="content-sidebar">
+                    <div class="sidebar-section">
+                        <h3>Course Content</h3>
+                        <div class="modules-list">
+                            <!-- Modules will be added by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-main">
+                    <div class="video-container">
+                        <div class="video-placeholder">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="course-tabs">
+                        <button class="tab-btn active" data-tab="overview">Overview</button>
+                        <button class="tab-btn" data-tab="resources">Resources</button>
+                        <button class="tab-btn" data-tab="qa">Q&A</button>
+                    </div>
+                    <div class="tab-content active" id="overview">
+                        <h2>About This Course</h2>
+                        <p class="course-description">This comprehensive course will teach you how to win in the psychological game of trading.</p>
+                        <h3>What You'll Learn</h3>
+                        <ul class="learning-list">
+                            <li><i class="fas fa-check"></i> Internal Review of your own Psychological state when it comes to trading</li>
+                            <li><i class="fas fa-check"></i> Create a structured trading plan according to your psychological state</li>
+                            <li><i class="fas fa-check"></i> Develop confidence and discipline when trading</li>
+                            <li><i class="fas fa-check"></i> Real-Time test with Ebitimi Oglafa</li>
+                            <li><i class="fas fa-check"></i> How to kill any fear when trading in the market</li>
+                        </ul>
+                    </div>
+                    <div class="tab-content" id="resources">
+                        <h2>Course Resources</h2>
+                        <p>Downloadable resources for this course:</p>
+                        <div class="resources-list">
+                            <!-- Resources will be added by JavaScript -->
+                        </div>
+                    </div>
+                    <div class="tab-content" id="qa">
+                        <h2>Questions & Answers</h2>
+                        <p>Have questions about this course? Ask the instructor or community.</p>
+                        <div class="qa-form">
+                            <textarea placeholder="Type your question here..."></textarea>
+                            <button class="btn btn-primary">Post Question</button>
+                        </div>
+                        <div class="qa-list">
+                            <!-- Q&A will be added by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="main-footer">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <i class="fas fa-graduation-cap brand-icon"></i>
+                    <span>Trade2Retire</span>
+                </div>
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h4>Learn</h4>
+                        <a href="course-list.htm">Courses</a>
+                        <a href="#">Tutorials</a>
+                        <a href="#">Resources</a>
+                    </div>
+                    <div class="link-group">
+                        <h4>Company</h4>
+                        <a href="https://trade2retire.org/about/">About</a>
+                        <a href="https://trade2retire.org/disclaimer/">Disclaimer</a>
+                        <a href="https://wa.me/+2349161419928">Contact</a>
+                    </div>
+                    <div class="link-group">
+                        <h4>Support</h4>
+                        <a href="https://wa.me/2348067056395" target="_blank">Help Center</a> 
+                        <a href="faq.htm">FAQ</a>
+                        <a href="https://chat.whatsapp.com/GhYt7VgvVfBFYwyvecnIlj?mode=ac_c"
+                            target="_blank">Community</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Trade2retire. All rights reserved.</p>
+                <div class="social-links">
+                    <a href="https://x.com/Trade2Retire_"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.facebook.com/Trade2Retire"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.instagram.com/trade2retire_"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <div class="page-loader">
+        <div class="loader-spinner"></div>
+    </div>
+
+    <script src="js/course.js"></script>
+    <script src="js/auth-state.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

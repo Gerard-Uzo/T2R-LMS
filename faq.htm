@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ | Trade2Retire</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" href="assets/T2Rlogo.png">
+    <style>
+        .faq-container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+        }
+        .faq-title {
+            text-align: center;
+            margin-bottom: 32px;
+            font-size: 2.2rem;
+            color: #2d3a4b;
+        }
+        .faq-list {
+            list-style: none;
+            padding: 0;
+        }
+        .faq-item {
+            margin-bottom: 24px;
+        }
+        .faq-question {
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+        .faq-answer {
+            margin-top: 8px;
+            color: #555;
+            display: none;
+        }
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+        @media (max-width: 600px) {
+            .faq-container {
+                padding: 10px;
+            }
+            .faq-title {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <nav class="main-nav">
+            <div class="nav-brand">
+                <i class="fas fa-graduation-cap brand-icon"></i>
+                <a href="index.html" class="brand-link">Trade2Retire</a>
+            </div>
+        </nav>
+        <div class="faq-container">
+            <h1 class="faq-title">Frequently Asked Questions</h1>
+            <ul class="faq-list" id="faqList">
+                <li class="faq-item">
+                    <div class="faq-question"><i class="fas fa-question-circle"></i>&nbsp; What is Trade2Retire?</div>
+                    <div class="faq-answer">Trade2Retire is a modern learning platform focused on trading and financial education, offering interactive courses, progress tracking, and certification.</div>
+                </li>
+                <li class="faq-item">
+                    <div class="faq-question"><i class="fas fa-question-circle"></i>&nbsp; How do I enroll in a course?</div>
+                    <div class="faq-answer">Simply register an account, browse the course list, and click "Enroll Now" on any course you wish to join.</div>
+                </li>
+                <!-- Add more FAQ items below as needed -->
+            </ul>
+            <p style="margin-top:32px; color:#888; font-size:0.95rem; text-align:center;"> <b></b> <code></code><code></code></p>
+        </div>
+    </div>
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <i class="fas fa-graduation-cap brand-icon"></i>
+                <span>Trade2Retire</span>
+            </div>
+            <div class="footer-links">
+                <div class="link-group">
+                    <h4>Learn</h4>
+                    <a href="course-list.htm">Courses</a>
+                    <a href="#">Tutorials</a>
+                    <a href="#">Resources</a>
+                </div>
+                <div class="link-group">
+                    <h4>Company</h4>
+                    <a href="https://trade2retire.org/about/">About</a>
+                    <a href="https://trade2retire.org/disclaimer/">Disclaimer</a>
+                    <a href="https://wa.me/+2349161419928">Contact</a>
+                </div>
+                <div class="link-group">
+                    <h4>Support</h4>
+                    <a href="https://wa.me/2348067056395" target="_blank">Help Center</a>
+                    <a href="faq.htm">FAQ</a>
+                    <a href="https://chat.whatsapp.com/GhYt7VgvVfBFYwyvecnIlj?mode=ac_c" target="_blank">Community</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Trade2Retire. All rights reserved.</p>
+            <div class="social-links">
+                <a href="https://x.com/Trade2Retire_"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.facebook.com/Trade2Retire"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.instagram.com/trade2retire_"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // FAQ toggle logic
+        document.querySelectorAll('.faq-question').forEach(q => {
+            q.addEventListener('click', function() {
+                const item = this.parentElement;
+                item.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html> 

@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Videos | Trade2Retire</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="icon" type="image/png" href="assets/T2Rlogo.png">
+</head>
+<body>
+    <div class="app-container">
+        <nav class="main-nav">
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="nav-brand">
+                <i class="fas fa-graduation-cap brand-icon"></i>
+                <a href="index.html" class="brand-link">Trade2Retire</a>
+            </div>
+            <div class="nav-links">
+                <div id="adminMenu" class="user-dropdown">
+                    <button class="user-btn">
+                        <img src="assets/default-avatar.jpg" alt="Admin" class="user-avatar" id="adminAvatar">
+                        <span id="adminNameDisplay">Admin</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="admin-dashboard.htm" class="dropdown-item"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                        <a href="#" class="dropdown-item" id="adminLogoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <div class="admin-toolbar">
+            <div class="toolbar-links">
+                <a href="admin-dashboard.htm" class="toolbar-link">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="admin-courses.htm" class="toolbar-link">
+                    <i class="fas fa-book-open"></i>
+                    <span>Courses</span>
+                </a>
+                <a href="admin-videos.htm" class="toolbar-link">
+                    <i class="fas fa-video"></i>
+                    <span>Videos</span>
+                </a>
+                <a href="admin-students.htm" class="toolbar-link">
+                    <i class="fas fa-users"></i>
+                    <span>Students</span>
+                </a>
+            </div>
+            <div class="toolbar-actions">
+                <button class="btn btn-outline btn-sm">
+                    <i class="fas fa-question-circle"></i>
+                    <span>Help</span>
+                </button>
+            </div>
+        </div>
+
+        <main class="admin-content">
+            <div class="sidebar">
+                <div class="sidebar-header">
+                    <div class="admin-info">
+                        <img src="assets/default-avatar.jpg" alt="Admin" class="admin-avatar" id="sidebarAdminAvatar">
+                        <h3 id="sidebarAdminName">Admin</h3>
+                        <p>Administrator</p>
+                    </div>
+                </div>
+                <div class="sidebar-menu">
+                    <a href="admin-dashboard.htm" class="sidebar-link">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="admin-courses.htm" class="sidebar-link">
+                        <i class="fas fa-book-open"></i>
+                        <span>Courses</span>
+                    </a>
+                    <a href="admin-videos.htm" class="sidebar-link active">
+                        <i class="fas fa-video"></i>
+                        <span>Video Content</span>
+                    </a>
+                    <a href="admin-students.htm" class="sidebar-link">
+                        <i class="fas fa-users"></i>
+                        <span>Students</span>
+                    </a>
+                    <a href="admin-messages.htm" class="sidebar-link">
+                        <i class="fas fa-comments"></i>
+                        <span>Messages</span>
+                    </a>
+                    <a href="admin-tests.htm" class="sidebar-link">
+                        <i class="fas fa-clipboard-check"></i>
+                        <span>Tests & Quizzes</span>
+                    </a>
+                    <a href="admin-settings.htm" class="sidebar-link">
+                        <i class="fas fa-cog"></i>
+                        <span>Settings</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="main-content">
+                <div class="content-header">
+                    <h1>Manage Video Content</h1>
+                    <button class="btn btn-primary" id="addVideoBtn">
+                        <i class="fas fa-plus"></i> Upload Video
+                    </button>
+                </div>
+
+                <div class="video-management">
+                    <div class="video-filters">
+                        <div class="filter-group">
+                            <select id="courseFilter" class="video-filter">
+                                <option value="all">All Courses</option>
+                                <!-- Will be populated by JavaScript -->
+                            </select>
+                            <select id="moduleFilter" class="video-filter">
+                                <option value="all">All Modules</option>
+                                <!-- Will be populated by JavaScript -->
+                            </select>
+                            <select id="statusFilter" class="video-filter">
+                                <option value="all">All Statuses</option>
+                                <option value="published">Published</option>
+                                <option value="draft">Draft</option>
+                                <option value="archived">Archived</option>
+                            </select>
+                        </div>
+                        <div class="search-bar">
+                            <i class="fas fa-search"></i>
+                            <input type="text" placeholder="Search videos..." id="videoSearch">
+                        </div>
+                    </div>
+
+                    <div class="videos-grid" id="videosList">
+                        <!-- Will be populated by JavaScript -->
+                    </div>
+
+                    <div class="table-footer">
+                        <div class="table-info">
+                            Showing <span id="startCount">1</span> to <span id="endCount">8</span> of <span id="totalCount">0</span> videos
+                        </div>
+                        <div class="pagination">
+                            <button class="btn btn-outline" id="prevPage" disabled><i class="fas fa-chevron-left"></i></button>
+                            <div class="page-numbers" id="pageNumbers"></div>
+                            <button class="btn btn-outline" id="nextPage"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Upload Video Modal -->
+                <div class="modal" id="uploadVideoModal">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3>Upload New Video</h3>
+                            <button class="close-btn">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="uploadVideoForm">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="videoCourse">Course</label>
+                                        <select id="videoCourse" required>
+                                            <option value="">Select Course</option>
+                                            <!-- Will be populated by JavaScript -->
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="videoModule">Module</label>
+                                        <select id="videoModule" required>
+                                            <option value="">Select Module</option>
+                                            <!-- Will be populated by JavaScript -->
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="videoTitle">Video Title</label>
+                                    <input type="text" id="videoTitle" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="videoDescription">Description</label>
+                                    <textarea id="videoDescription" rows="3"></textarea>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="videoFile">Video File</label>
+                                        <div class="file-upload">
+                                            <input type="file" id="videoFile" accept="video/*" required>
+                                            <label for="videoFile" class="file-upload-label">
+                                                <i class="fas fa-file-video"></i>
+                                                <span>Select video file (MP4, WebM, Ogg)</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="videoThumbnail">Thumbnail Image</label>
+                                        <div class="file-upload">
+                                            <input type="file" id="videoThumbnail" accept="image/*">
+                                            <label for="videoThumbnail" class="file-upload-label">
+                                                <i class="fas fa-image"></i>
+                                                <span>Select thumbnail image</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-actions">
+                                    <button type="button" class="btn btn-outline cancel-btn">Cancel</button>
+                                    <button type="submit" class="btn btn-primary">Upload Video</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="main-footer">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <i class="fas fa-graduation-cap brand-icon"></i>
+                    <span>Trade2Retire</span>
+                </div>
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h4>Company</h4>
+                        <a href="https://trade2retire.org/about/">About</a>
+                        <a href="https://trade2retire.org/disclaimer/">Disclaimer</a>
+                        <a href="https://wa.me/+2349161419928">Contact</a>
+                    </div>
+                    <div class="link-group">
+                        <h4>Support</h4>
+                        <a href="https://wa.me/2348067056395" target="_blank">Help Center</a>
+                        <a href="faq.htm">FAQ</a>
+                        <a href="https://chat.whatsapp.com/GhYt7VgvVfBFYwyvecnIlj?mode=ac_c" target="_blank">Community</a>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2025 Trade2Retire. All rights reserved.</p>
+                    <div class="social-links">
+                        <a href="https://x.com/Trade2Retire_"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.facebook.com/Trade2Retire"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://www.instagram.com/trade2retire_"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="js/admin-auth-state.js"></script>
+    <script src="js/admin-videos.js"></script>
+    <script>
+// Fix for video modal functionality
+document.addEventListener('DOMContentLoaded', function() {
+    // Ensure modal appears when button is clicked
+    const addVideoBtn = document.getElementById('addVideoBtn');
+    const uploadModal = document.getElementById('uploadVideoModal');
+
+    if (addVideoBtn && uploadModal) {
+        addVideoBtn.addEventListener('click', function() {
+            uploadModal.classList.add('active');
+        });
+
+        // Close modal when clicking close button
+        const closeBtn = uploadModal.querySelector('.close-btn');
+        if (closeBtn) {
+            closeBtn.addEventListener('click', function() {
+                uploadModal.classList.remove('active');
+            });
+        }
+
+        // Close modal when clicking cancel button
+        const cancelBtn = uploadModal.querySelector('.cancel-btn');
+        if (cancelBtn) {
+            cancelBtn.addEventListener('click', function() {
+                uploadModal.classList.remove('active');
+            });
+        }
+
+        // Close modal when clicking outside
+        window.addEventListener('click', function(event) {
+            if (event.target === uploadModal) {
+                uploadModal.classList.remove('active');
+            }
+        });
+    }
+
+    // Basic form submission handler
+    const uploadForm = document.getElementById('uploadVideoForm');
+    if (uploadForm) {
+        uploadForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Video uploaded successfully!');
+            uploadModal.classList.remove('active');
+            this.reset();
+        });
+    }
+});
+</script>
+<script>
+// Videos Management System
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize data
+    let videos = JSON.parse(localStorage.getItem('admin-videos')) || [];
+    const courses = JSON.parse(localStorage.getItem('admin-courses')) || [];
+
+    // DOM Elements
+    const addVideoBtn = document.getElementById('addVideoBtn');
+    const uploadModal = document.getElementById('uploadVideoModal');
+    const uploadForm = document.getElementById('uploadVideoForm');
+    const videosList = document.getElementById('videosList');
+    const courseFilter = document.getElementById('courseFilter');
+    const moduleFilter = document.getElementById('moduleFilter');
+    const videoCourse = document.getElementById('videoCourse');
+    const videoModule = document.getElementById('videoModule');
+
+    // Toggle Modal
+    function toggleModal(modal, show) {
+        if (show) {
+            modal.classList.add('active');
+        } else {
+            modal.classList.remove('active');
+        }
+    }
+
+    // Populate Course Dropdowns
+    function populateCourses(selectElement) {
+        selectElement.innerHTML = '';
+        const defaultOption = document.createElement('option');
+        defaultOption.value = '';
+        defaultOption.textContent = 'Select Course';
+        selectElement.appendChild(defaultOption);
+
+        courses.forEach(course => {
+            const option = document.createElement('option');
+            option.value = course.id;
+            option.textContent = course.title;
+            selectElement.appendChild(option);
+        });
+    }
+
+    // Populate Module Dropdown
+    function populateModules(selectElement, courseId) {
+        selectElement.innerHTML = '';
+        const defaultOption = document.createElement('option');
+        defaultOption.value = '';
+        defaultOption.textContent = 'Select Module';
+        selectElement.appendChild(defaultOption);
+
+        if (courseId) {
+            const course = courses.find(c => c.id === parseInt(courseId));
+            if (course && course.modules) {
+                course.modules.forEach(module => {
+                    const option = document.createElement('option');
+                    option.value = module.id || module.title;
+                    option.textContent = module.title;
+                    selectElement.appendChild(option);
+                });
+            }
+        }
+    }
+
+    // Render Videos
+    function renderVideos() {
+        videosList.innerHTML = '';
+        videos.forEach(video => {
+            const course = courses.find(c => c.id === video.courseId);
+            const videoCard = document.createElement('div');
+            videoCard.className = 'video-card';
+            videoCard.innerHTML = `
+                <div class="video-thumbnail" style="background-image: url('${video.thumbnail || 'assets/video-placeholder.jpg'}')">
+                    <i class="fas fa-play"></i>
+                </div>
+                <div class="video-info">
+                    <h4>${video.title}</h4>
+                    <p class="video-meta">
+                        <span>${course?.title || 'No Course'}</span>
+                        <span>• ${video.duration || '10:00'}</span>
+                    </p>
+                    <div class="video-actions">
+                        <button class="btn-icon edit-btn" data-id="${video.id}"><i class="fas fa-edit"></i></button>
+                        <button class="btn-icon delete-btn" data-id="${video.id}"><i class="fas fa-trash"></i></button>
+                    </div>
+                </div>
+            `;
+            videosList.appendChild(videoCard);
+        });
+
+        // Add event listeners to action buttons
+        document.querySelectorAll('.edit-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const videoId = parseInt(e.currentTarget.getAttribute('data-id'));
+                editVideo(videoId);
+            });
+        });
+
+        document.querySelectorAll('.delete-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const videoId = parseInt(e.currentTarget.getAttribute('data-id'));
+                deleteVideo(videoId);
+            });
+        });
+    }
+
+    // Add New Video
+    function addVideo(videoData) {
+        const newVideo = {
+            id: videos.length + 1,
+            ...videoData,
+            status: 'published',
+            createdAt: new Date().toISOString(),
+            thumbnail: 'assets/video-placeholder.jpg'
+        };
+        videos.push(newVideo);
+        saveVideos();
+    }
+
+    // Edit Video
+    function editVideo(videoId) {
+        const video = videos.find(v => v.id === videoId);
+        if (!video) return;
+
+        // Populate form
+        document.getElementById('videoTitle').value = video.title;
+        document.getElementById('videoCourse').value = video.courseId;
+        populateModules(document.getElementById('videoModule'), video.courseId);
+        setTimeout(() => {
+            document.getElementById('videoModule').value = video.moduleId;
+        }, 100);
+        document.getElementById('videoDescription').value = video.description;
+
+        // Change form to edit mode
+        uploadForm.dataset.editId = videoId;
+        document.querySelector('#uploadVideoModal .modal-header h3').textContent = 'Edit Video';
+        toggleModal(uploadModal, true);
+    }
+
+    // Delete Video
+    function deleteVideo(videoId) {
+        if (confirm('Are you sure you want to delete this video?')) {
+            videos = videos.filter(v => v.id !== videoId);
+            saveVideos();
+        }
+    }
+
+    // Save Videos
+    function saveVideos() {
+        localStorage.setItem('admin-videos', JSON.stringify(videos));
+        localStorage.setItem('student-videos', JSON.stringify(videos)); // Sync to student portal
+        renderVideos();
+    }
+
+    // Event Listeners
+    addVideoBtn.addEventListener('click', () => {
+        uploadForm.reset();
+        delete uploadForm.dataset.editId;
+        document.querySelector('#uploadVideoModal .modal-header h3').textContent = 'Upload New Video';
+        populateCourses(videoCourse);
+        populateModules(videoModule, null);
+        toggleModal(uploadModal, true);
+    });
+
+    uploadForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const videoData = {
+            title: document.getElementById('videoTitle').value,
+            courseId: parseInt(document.getElementById('videoCourse').value),
+            moduleId: document.getElementById('videoModule').value,
+            description: document.getElementById('videoDescription').value,
+            duration: '10:00' // Default duration
+        };
+
+        if (uploadForm.dataset.editId) {
+            // Update existing video
+            const videoId = parseInt(uploadForm.dataset.editId);
+            const videoIndex = videos.findIndex(v => v.id === videoId);
+            if (videoIndex !== -1) {
+                videos[videoIndex] = { ...videos[videoIndex], ...videoData };
+            }
+        } else {
+            // Add new video
+            addVideo(videoData);
+        }
+
+        saveVideos();
+        toggleModal(uploadModal, false);
+    });
+
+    // Course selection changes
+    videoCourse.addEventListener('change', (e) => {
+        populateModules(videoModule, e.target.value);
+    });
+
+    courseFilter.addEventListener('change', (e) => {
+        populateModules(moduleFilter, e.target.value);
+        filterVideos();
+    });
+
+    moduleFilter.addEventListener('change', filterVideos);
+
+    // Filter Videos
+    function filterVideos() {
+        const courseId = courseFilter.value;
+        const moduleId = moduleFilter.value;
+
+        let filteredVideos = videos;
+        if (courseId) {
+            filteredVideos = filteredVideos.filter(v => v.courseId === parseInt(courseId));
+        }
+        if (moduleId) {
+            filteredVideos = filteredVideos.filter(v => v.moduleId === moduleId);
+        }
+
+        renderVideos(filteredVideos);
+    }
+
+    // Close modal when clicking outside
+    uploadModal.addEventListener('click', (e) => {
+        if (e.target === uploadModal) {
+            toggleModal(uploadModal, false);
+        }
+    });
+
+    // Initialize
+    populateCourses(courseFilter);
+    populateCourses(videoCourse);
+    renderVideos();
+});
+</script>
+</body>
+</html>

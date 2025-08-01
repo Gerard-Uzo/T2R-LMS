@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | Trade2Retire</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="icon" type="image/png" href="assets/T2Rlogo.png">
+</head>
+<body>
+    <div class="app-container">
+        <nav class="main-nav">
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="nav-brand">
+                <i class="fas fa-graduation-cap brand-icon"></i>
+                <a href="index.html" class="brand-link">Trade2Retire</a>
+            </div>
+            <div class="nav-links">
+                <div id="adminMenu" class="user-dropdown">
+                    <button class="user-btn">
+                        <img src="assets/default-avatar.jpg" alt="Admin" class="user-avatar" id="adminAvatar">
+                        <span id="adminNameDisplay">Admin</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="admin-dashboard.htm" class="dropdown-item"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                        <a href="#" class="dropdown-item" id="adminLogoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <div class="admin-toolbar">
+            <div class="toolbar-links">
+                <a href="admin-dashboard.htm" class="toolbar-link active">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="admin-courses.htm" class="toolbar-link">
+                    <i class="fas fa-book-open"></i>
+                    <span>Courses</span>
+                </a>
+                <a href="admin-videos.htm" class="toolbar-link">
+                    <i class="fas fa-video"></i>
+                    <span>Videos</span>
+                </a>
+                <a href="admin-students.htm" class="toolbar-link">
+                    <i class="fas fa-users"></i>
+                    <span>Students</span>
+                </a>
+            </div>
+            <div class="toolbar-actions">
+                <button class="btn btn-outline btn-sm">
+                    <i class="fas fa-question-circle"></i>
+                    <span>Help</span>
+                </button>
+            </div>
+        </div>
+
+        <main class="admin-content">
+            <div class="sidebar">
+                <div class="sidebar-header">
+                    <div class="admin-info">
+                        <img src="assets/default-avatar.jpg" alt="Admin" class="admin-avatar" id="sidebarAdminAvatar">
+                        <h3 id="sidebarAdminName">Admin</h3>
+                        <p>Administrator</p>
+                    </div>
+                </div>
+                <div class="sidebar-menu">
+                    <a href="admin-dashboard.htm" class="sidebar-link active">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="admin-courses.htm" class="sidebar-link">
+                        <i class="fas fa-book-open"></i>
+                        <span>Courses</span>
+                    </a>
+                    <a href="admin-videos.htm" class="sidebar-link">
+                        <i class="fas fa-video"></i>
+                        <span>Video Content</span>
+                    </a>
+                    <a href="admin-students.htm" class="sidebar-link">
+                        <i class="fas fa-users"></i>
+                        <span>Students</span>
+                    </a>
+                    <a href="admin-messages.htm" class="sidebar-link">
+                        <i class="fas fa-comments"></i>
+                        <span>Messages</span>
+                    </a>
+                    <a href="admin-tests.htm" class="sidebar-link">
+                        <i class="fas fa-clipboard-check"></i>
+                        <span>Tests & Quizzes</span>
+                    </a>
+                    <a href="admin-settings.htm" class="sidebar-link">
+                        <i class="fas fa-cog"></i>
+                        <span>Settings</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="main-content">
+                <div class="welcome-banner">
+                    <h1>Welcome, <span id="welcomeAdminName">Admin</span>!</h1>
+                    <p>Manage your learning platform efficiently</p>
+                </div>
+
+                <div class="content-header">
+                    <h1>Dashboard Overview</h1>
+                    <button class="btn btn-yellow">
+                        <i class="fas fa-plus"></i> Quick Action
+                    </button>
+                </div>
+
+                <section class="stats-section">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3 id="totalStudents">1,248</h3>
+                                <p>Total Students</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-book-open"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3 id="totalCourses">5</h3>
+                                <p>Active Courses</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-video"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3 id="totalVideos">15</h3>
+                                <p>Video Lessons</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-comments"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3 id="totalMessages">10</h3>
+                                <p>New Messages</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="recent-section">
+                    <div class="content-header">
+                        <h2>Recent Activity</h2>
+                        <button class="btn btn-outline">
+                            View All
+                        </button>
+                    </div>
+                    <div class="activity-list" id="recentActivity">
+                        <!-- Activity items will be populated by JavaScript -->
+                    </div>
+                </section>
+
+                <section class="courses-section">
+                    <div class="content-header">
+                        <h2>Recent Courses</h2>
+                        <a href="admin-courses.htm" class="btn btn-outline">
+                            View All Courses
+                        </a>
+                    </div>
+                    <div class="courses-grid">
+                        <!-- Will be populated with course cards -->
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <footer class="main-footer">
+            <div class="footer-content">
+                <p>&copy; 2025 Trade2Retire. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Contact Support</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script>
+    // Mobile menu fix
+    document.addEventListener('DOMContentLoaded', function() {
+        const menuToggle = document.getElementById('menuToggle');
+        const sidebar = document.querySelector('.sidebar');
+
+        if (menuToggle && sidebar) {
+            menuToggle.addEventListener('click', function() {
+                sidebar.classList.toggle('active');
+            });
+
+            // Close when clicking on sidebar links
+            document.querySelectorAll('.sidebar-link').forEach(link => {
+                link.addEventListener('click', function() {
+                    if (window.innerWidth <= 768) {
+                        sidebar.classList.remove('active');
+                    }
+                });
+            });
+        }
+    });
+</script>
+    <script src="js/admin-auth-state.js"></script>
+    <script src="js/admin-dashboard.js"></script>
+    <script>
+        // Initialize mobile menu on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            initAdminMobileMenu();
+        });
+    </script>
+</body>
+</html>

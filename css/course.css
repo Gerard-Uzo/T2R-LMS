@@ -1,0 +1,262 @@
+.course-page {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.course-hero {
+    background-color: var(--primary-blue);
+    color: var(--white);
+    padding: 2rem;
+    border-radius: var(--radius-md);
+    margin-bottom: 2rem;
+}
+
+.course-hero h1 {
+    margin-bottom: 0.5rem;
+}
+
+.instructor {
+    opacity: 0.9;
+    margin-bottom: 1rem;
+}
+
+.course-stats {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.course-stats span {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.course-content {
+    display: flex;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.content-sidebar {
+    width: 300px;
+    flex-shrink: 0;
+}
+
+.sidebar-section {
+    background-color: var(--white);
+    border-radius: var(--radius-md);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: var(--shadow-sm);
+}
+
+.modules-list {
+    margin-top: 1rem;
+}
+
+.module {
+    margin-bottom: 0.5rem;
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+}
+
+.module-header {
+    padding: 1rem;
+    background-color: var(--gray-100);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.module-header h4 {
+    margin: 0;
+}
+
+.lessons-list {
+    padding: 0.5rem;
+    background-color: var(--white);
+    display: none;
+}
+
+.lesson {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem;
+    border-radius: var(--radius-sm);
+    margin-bottom: 0.25rem;
+    text-decoration: none;
+    color: var(--gray-700);
+    transition: var(--transition);
+}
+
+.lesson:hover {
+    background-color: var(--gray-100);
+}
+
+.lesson.complete {
+    color: var(--primary-blue);
+}
+
+.lesson.complete i {
+    color: var(--primary-yellow);
+}
+
+.content-main {
+    flex: 1;
+}
+
+.video-container {
+    background-color: var(--black);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    margin-bottom: 2rem;
+    aspect-ratio: 16/9;
+    position: relative;
+}
+
+.video-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--gray-900);
+    color: var(--white);
+    font-size: 1.5rem;
+}
+
+.course-tabs {
+    display: flex;
+    border-bottom: 1px solid var(--gray-300);
+    margin-bottom: 1.5rem;
+}
+
+.tab-btn {
+    padding: 0.75rem 1.5rem;
+    background: none;
+    border: none;
+    border-bottom: 3px solid transparent;
+    font-weight: 500;
+    cursor: pointer;
+    color: var(--gray-700);
+    transition: var(--transition);
+}
+
+.tab-btn.active {
+    color: var(--primary-blue);
+    border-bottom-color: var(--primary-yellow);
+}
+
+.tab-btn:hover:not(.active) {
+    color: var(--primary-blue);
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.course-description {
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+
+.learning-list {
+    list-style: none;
+    margin-bottom: 1.5rem;
+}
+
+.learning-list li {
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.learning-list i {
+    color: var(--primary-blue);
+}
+
+.resource-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-sm);
+    margin-bottom: 0.75rem;
+}
+
+.resource-item i {
+    font-size: 1.25rem;
+    color: var(--primary-blue);
+}
+
+.resource-info {
+    flex: 1;
+}
+
+.resource-info h4 {
+    margin-bottom: 0.25rem;
+}
+
+.resource-meta {
+    font-size: 0.875rem;
+    color: var(--gray-700);
+}
+
+.qa-form {
+    margin-bottom: 2rem;
+}
+
+.qa-form textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid var(--gray-300);
+    border-radius: var(--radius-sm);
+    margin-bottom: 1rem;
+    min-height: 100px;
+}
+
+.qa-item {
+    padding: 1rem;
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-sm);
+    margin-bottom: 1rem;
+}
+
+.qa-question {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.qa-answer {
+    padding-left: 1rem;
+    border-left: 3px solid var(--gray-200);
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+}
+
+@media (max-width: 992px) {
+    .course-content {
+        flex-direction: column;
+    }
+
+    .content-sidebar {
+        width: 100%;
+    }
+}

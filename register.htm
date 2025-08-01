@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register | Trade2Retire</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/auth.css">
+    <link rel="icon" type="image/png" href="assets/T2Rlogo.png">
+    <script type="module" src="js/firebase.js"></script>
+</head>
+
+<body>
+    <div class="app-container">
+        <nav class="main-nav">
+            <div class="nav-brand">
+                <i class="fas fa-graduation-cap brand-icon"></i>
+                <a href="index.html" class="brand-link">Trade2Retire</a>
+            </div>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="#" class="nav-link">Features</a>
+                <div id="authLinks">
+                    <a href="login.htm" class="nav-link auth-link">Login</a>
+                    <a href="register.htm" class="nav-link auth-link primary">Register</a>
+                </div>
+                <div id="userMenu" class="user-dropdown" style="display:none;">
+                    <button class="user-btn">
+                        <img src="assets/default-avatar.jpg" alt="User" class="user-avatar">
+                        <span id="usernameDisplay">User</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="dashboard.htm" class="dropdown-item"><i class="fas fa-tachometer-alt"></i>
+                            Dashboard</a>
+                        <a href="profile.htm" class="dropdown-item"><i class="fas fa-user"></i> Profile</a>
+                        <a href="settings.htm" class="dropdown-item"><i class="fas fa-cog"></i> Settings</a>
+                        <a href="#" class="dropdown-item" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                    </div>
+                </div>
+            </div>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+
+        <div class="auth-container">
+            <div class="auth-card">
+                <div class="auth-header">
+                    <i class="fas fa-graduation-cap brand-icon"></i>
+                    <h2>Create an Account</h2>
+                    <p>Join our learning community today</p>
+                </div>
+
+                <form id="registerForm" class="auth-form">
+                    <div class="form-group">
+                        <label for="fullName">Full Name</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-user"></i>
+                            <input type="text" id="fullName" name="fullName" placeholder="Enter your full name"
+                                required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="password" name="password" placeholder="Create a password"
+                                required>
+                        </div>
+                        <div class="password-hint">
+                            <p>Password must be at least 8 characters long</p>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirm Password</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="confirmPassword" name="confirmPassword"
+                                placeholder="Confirm your password" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="terms" name="terms" required>
+                        <label for="terms">I agree to the <a href="#" class="text-link">Terms of Service</a> and <a
+                                href="#" class="text-link">Privacy Policy</a></label>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-block">Register</button>
+
+                    <div class="auth-footer">
+                        <p>Already have an account? <a href="login.htm" class="text-link">Login</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <footer class="main-footer">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <i class="fas fa-graduation-cap brand-icon"></i>
+                    <span>LearnHub</span>
+                </div>
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h4>Learn</h4>
+                        <a href="course-list.htm">Courses</a>
+                        <a href="#">Tutorials</a>
+                        <a href="#">Resources</a>
+                    </div>
+                    <div class="link-group">
+                        <h4>Company</h4>
+                        <a href="https://trade2retire.org/">About</a>
+                        <a href="https://trade2retire.org/">Careers</a>
+                        <a href="https://wa.me/+2349161419928">Contact</a>
+                    </div>
+                    <div class="link-group">
+                        <h4>Support</h4>
+                        <a href="https://wa.me/2348067056395" target="_blank">Help Center</a>
+                        <a href="faq.htm">FAQ</a>
+                        <a href="https://chat.whatsapp.com/GhYt7VgvVfBFYwyvecnIlj?mode=ac_c"
+                            target="_blank">Community</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 LearnHub. All rights reserved.</p>
+                <div class="social-links">
+                    <a href="https://x.com/Trade2Retire_"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.facebook.com/Trade2Retire"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.instagram.com/trade2retire_"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <div class="page-loader">
+        <div class="loader-spinner"></div>
+    </div>
+
+    <script src="js/auth-state.js"></script>
+    <script src="js/main.js"></script>
+    <script type="module">
+        // Add this new script block - this is the ONLY addition needed
+        import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
+        import { app } from './js/firebase-config.js';
+        import { registerStudent } from './js/auth.js';
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const registerForm = document.getElementById('registerForm');
+
+            registerForm.addEventListener('submit', async function (e) {
+                e.preventDefault();
+
+                const submitBtn = registerForm.querySelector('button[type="submit"]');
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Registering...';
+
+                const fullName = document.getElementById('fullName').value.trim();
+                const email = document.getElementById('email').value.trim();
+                const password = document.getElementById('password').value;
+                const confirmPassword = document.getElementById('confirmPassword').value;
+
+                if (password !== confirmPassword) {
+                    alert('Passwords do not match!');
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Register';
+                    return;
+                }
+
+                if (password.length < 8) {
+                    alert('Password must be at least 8 characters long!');
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Register';
+                    return;
+                }
+
+                try {
+                    const success = await registerStudent(email, password, fullName);
+                    if (!success) {
+                        submitBtn.disabled = false;
+                        submitBtn.textContent = 'Register';
+                    }
+                } catch (error) {
+                    console.error('Registration error:', error);
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Register';
+                }
+            });
+        });
+    </script>
+<!-- Add this right before closing </body> tag -->
+<script type="module">
+    import { registerStudent } from './js/auth.js';
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const registerForm = document.getElementById('registerForm');
+
+        registerForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+
+            const submitBtn = registerForm.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+
+            try {
+                // Show loading state
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Registering...';
+
+                // Get form values
+                const name = document.getElementById('fullName').value.trim();
+                const email = document.getElementById('email').value.trim();
+                const password = document.getElementById('password').value;
+                const confirmPassword = document.getElementById('confirmPassword').value;
+
+                // Validation
+                if (!name || name.length < 2) {
+                    throw new Error('Please enter a valid name (at least 2 characters)');
+                }
+
+                if (password !== confirmPassword) {
+                    throw new Error('Passwords do not match');
+                }
+
+                if (password.length < 8) {
+                    throw new Error('Password must be at least 8 characters');
+                }
+
+                // Call registration function
+                const success = await registerStudent(email, password, name);
+
+                if (success) {
+                    alert('Registration successful! Redirecting to login...');
+                    window.location.href = 'login.htm';
+                }
+            } catch (error) {
+                alert(error.message);
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalText;
+            }
+        });
+    });
+</script>
+</body>
+
+</html>
