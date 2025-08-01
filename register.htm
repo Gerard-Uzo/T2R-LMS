@@ -206,6 +206,8 @@
 <!-- Add this right before closing </body> tag -->
 <script type="module">
     import { registerStudent } from './js/auth.js';
+    import { auth } from './js/firebase-config.js';
+    import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
 
     document.addEventListener('DOMContentLoaded', () => {
         const registerForm = document.getElementById('registerForm');
@@ -245,8 +247,18 @@
                 const success = await registerStudent(email, password, name);
 
                 if (success) {
-                    alert('Registration successful! Redirecting to login...');
-                    window.location.href = 'login.htm';
+                    // Wait for auth state to update
+                    await new Promise((resolve) => {
+                        const unsubscribe = onAuthStateChanged(auth, (user) => {
+                            if (user) {
+                                unsubscribe();
+                                resolve();
+                            }
+                        });
+                    });
+
+                    // Redirect to dashboard
+                    window.location.href = 'dashboard.htm';
                 }
             } catch (error) {
                 alert(error.message);

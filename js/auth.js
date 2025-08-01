@@ -1,7 +1,8 @@
 import {
     getAuth,
     createUserWithEmailAndPassword,
-    updateProfile
+    updateProfile,
+    signInWithEmailAndPassword
 } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
 import {
     getFirestore,
@@ -19,9 +20,9 @@ export async function registerStudent(email, password, name) {
         const userCredential = await createUserWithEmailAndPassword(auth, email, password);
         const user = userCredential.user;
 
-        // 2. Update user profile with display name
+        // 2. Update user profile with display name (this is crucial)
         await updateProfile(user, {
-            displayName: name
+            displayName: name.trim()
         });
 
         // 3. Create user document in Firestore
@@ -32,9 +33,12 @@ export async function registerStudent(email, password, name) {
             createdAt: new Date().toISOString(),
             active: true,
             courses: [],
-            lastLogin: null,
+            lastLogin: new Date().toISOString(),
             profileComplete: false
         });
+
+        // 4. Automatically log the user in
+        await signInWithEmailAndPassword(auth, email, password);
 
         return true;
     } catch (error) {
@@ -52,5 +56,15 @@ export async function registerStudent(email, password, name) {
         }
 
         throw new Error(message);
+    }
+}
+
+export async function logoutUser() {
+    try {
+        await auth.signOut();
+        return true;
+    } catch (error) {
+        console.error("Logout error:", error);
+        throw error;
     }
 }
