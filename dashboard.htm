@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
     <link rel="stylesheet" href="css/dashboard.css">
     <link rel="icon" type="image/png" href="assets/T2Rlogo.png">
 </head>
+
 <body>
     <div class="app-container">
         <nav class="main-nav">
@@ -21,17 +23,19 @@
                 <a href="course-list.htm" class="nav-link">My Courses</a>
                 <a href="student-tests.htm" class="nav-link">My Tests</a>
                 <a href="progress.htm" class="nav-link">Progress</a>
-                <div id="userMenu" class="user-dropdown">
+                <div id="userMenu" class="user-dropdowndrdr">
                     <button class="user-btn">
                         <img src="assets/default-avatar.jpg" alt="User" class="user-avatar">
                         <span id="usernameDisplay">User</span>
                         <i class="fas fa-chevron-down"></i>
                     </button>
                     <div class="dropdown-menu">
-                        <a href="dashboard.htm" class="dropdown-item"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                        <a href="dashboard.htm" class="dropdown-item"><i class="fas fa-tachometer-alt"></i>
+                            Dashboard</a>
                         <a href="profile.htm" class="dropdown-item"><i class="fas fa-user"></i> Profile</a>
                         <a href="settings.htm" class="dropdown-item"><i class="fas fa-cog"></i> Settings</a>
-                        <a href="#" class="dropdown-item" id="logoutBtn" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                        <a href="#" class="dropdown-item" id="logoutBtn" onclick="logout()"><i
+                                class="fas fa-sign-out-alt"></i> Logout</a>
                     </div>
                 </div>
             </div>
@@ -73,56 +77,32 @@
                     <a href="settings.htm" class="sidebar-link">
                         <i class="fas fa-cog"></i>
                         <span>Settings</span>
-                    <a href="#" class="dropdown-item" id="logoutBtn" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                        <a href="#" class="dropdown-item" id="logoutBtn" onclick="logout()"><i
+                                class="fas fa-sign-out-alt"></i> Logout</a>
                     </a>
                 </div>
             </div>
 
             <div class="dashboard-main">
                 <div class="welcome-banner">
-                    <h1>Welcome back, <span id="welcomeUsername">User</span>!</h1>
-                    <p>Continue your learning journey with these recommended courses</p>
+                    <h1>Welcome, <span id="welcomeUsername">User</span>!</h1>
+                    <p>Start your learning journey with these recommended courses</p>
                 </div>
 
                 <section class="courses-section">
-                    <h2 class="section-title">Continue Learning</h2>
+                    <h2 class="section-title">Start Learning</h2>
                     <div class="courses-grid">
-                        <div class="course-card" onclick="window.location.href='courses-course-1.htm'">
-                            <div class="course-image" style="background-image: url('assets/NAS100_2025-04-23_18-32-28.png');"></div>
-                            <div class="course-details">
-                                <h3>CRT</h3>
-                                <p class="course-instructor">By Bishop Fisayo</p>
-                                <div class="course-progress">
-                                    <div class="progress-bar">
-                                        <div class="progress-fill" style="width: 65%;"></div>
-                                    </div>
-                                    <span>65% Complete</span>
-                                </div>
-                                <button class="btn btn-primary btn-sm">Continue</button>
-                            </div>
-                        </div>
-                        <div class="course-card" onclick="window.location.href='courses-course-1.htm'">
-                            <div class="course-image" style="background-image: url('assets/psych.png');"></div>
-                            <div class="course-details">
-                                <h3>Psychology Of Trading</h3>
-                                <p class="course-instructor">By Ebitimi Oglafa</p>
-                                <div class="course-progress">
-                                    <div class="progress-bar">
-                                        <div class="progress-fill" style="width: 30%;"></div>
-                                    </div>
-                                    <span>30% Complete</span>
-                                </div>
-                                <button class="btn btn-primary btn-sm">Continue</button>
-                            </div>
-                        </div>
+                        <!-- Course cards will be populated by JavaScript -->
                     </div>
+
                 </section>
 
                 <section class="courses-section">
-                    <h2 class="section-title">Recommended For You</h2>
+                    <h2 class="section-title">Other Courses</h2>
                     <div class="courses-grid">
-                        <div class="course-card" onclick="window.location.href='courses-course-1.htm'">
-                            <div class="course-image" style="background-image: url('assets/gold master class.png');"></div>
+                        <div class="course-card" onclick="window.location.href='courses-course-6.htm'">
+                            <div class="course-image" style="background-image: url('assets/gold master class.png');">
+                            </div>
                             <div class="course-details">
                                 <h3>Gold Masterclass</h3>
                                 <p class="course-instructor">By Phillip Ajaebili</p>
@@ -130,23 +110,26 @@
                                     <span><i class="fas fa-video"></i> 12 Lessons</span>
                                     <span><i class="fas fa-clock"></i> 4.5 Hours</span>
                                 </div>
-                                <button class="btn btn-outline btn-sm">Enroll Now</button>
+                                <button class="btn btn-outline btn-sm">Start</button>
                             </div>
                         </div>
-                        <div class="course-card" onclick="window.location.href='courses-course-1.htm'">
-                            <div class="course-image" style="background-image: url('assets/NAS100_2025-04-23_18-32-28.png');"></div>
+                        <div class="course-card" onclick="window.location.href='courses-course-5.htm'">
+                            <div class="course-image"
+                                style="background-image: url('assets/ChatGPT Image Aug 5, 2025, 11_07_32 AM.png');">
+                            </div>
                             <div class="course-details">
-                                <h3>Departure Leg</h3>
-                                <p class="course-instructor">By Kufre</p>
+                                <h3>Treadline Strategy</h3>
+                                <p class="course-instructor">By Bishop</p>
                                 <div class="course-meta">
                                     <span><i class="fas fa-video"></i> 8 Lessons</span>
                                     <span><i class="fas fa-clock"></i> 3 Hours</span>
                                 </div>
-                                <button class="btn btn-outline btn-sm">Enroll Now</button>
+                                <button class="btn btn-outline btn-sm">Start</button>
                             </div>
                         </div>
-                        <div class="course-card" onclick="window.location.href='courses-course-1.htm'">
-                            <div class="course-image" style="background-image: url('assets/NAS100_2025-04-23_18-32-28.png');"></div>
+                        <div class="course-card" onclick="window.location.href='courses-course-3.htm'">
+                            <div class="course-image" style="background-image: url('assets/tradingforbeginners.png');">
+                            </div>
                             <div class="course-details">
                                 <h3>Trading For Beginners</h3>
                                 <p class="course-instructor">By Preye</p>
@@ -154,7 +137,7 @@
                                     <span><i class="fas fa-video"></i> 15 Lessons</span>
                                     <span><i class="fas fa-clock"></i> 6 Hours</span>
                                 </div>
-                                <button class="btn btn-outline btn-sm">Enroll Now</button>
+                                <button class="btn btn-outline btn-sm">Start</button>
                             </div>
                         </div>
                     </div>
@@ -204,7 +187,7 @@
                         </div>
                         <div class="link-group">
                             <h4>Support</h4>
-                            <a href="https://wa.me/2348067056395" target="_blank">Help Center</a> 
+                            <a href="https://wa.me/2348067056395" target="_blank">Help Center</a>
                             <a href="faq.htm">FAQ</a>
                             <a href="https://chat.whatsapp.com/GhYt7VgvVfBFYwyvecnIlj?mode=ac_c"
                                 target="_blank">Community</a>
@@ -225,67 +208,68 @@
     </div>
 
     <script type="module">
-      import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
-      import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-analytics.js";
-      const firebaseConfig = {
-        apiKey: "AIzaSyDgFEObhGb7pTqoNPc2PljcWrFN4vYm-qg",
-        authDomain: "t2r-lms.firebaseapp.com",
-        projectId: "t2r-lms",
-        storageBucket: "t2r-lms.firebasestorage.app",
-        messagingSenderId: "684814093970",
-        appId: "1:684814093970:web:f6ec43e88106e74695604b",
-        measurementId: "G-ZDJ1KEDGQ4"
-      };
-      const app = initializeApp(firebaseConfig);
-      const analytics = getAnalytics(app);
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-analytics.js";
+        const firebaseConfig = {
+            apiKey: "AIzaSyDgFEObhGb7pTqoNPc2PljcWrFN4vYm-qg",
+            authDomain: "t2r-lms.firebaseapp.com",
+            projectId: "t2r-lms",
+            storageBucket: "t2r-lms.firebasestorage.app",
+            messagingSenderId: "684814093970",
+            appId: "1:684814093970:web:f6ec43e88106e74695604b",
+            measurementId: "G-ZDJ1KEDGQ4"
+        };
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
     </script>
     <script type="module">
-    import { auth, onAuthStateChanged } from './js/firebase-config.js';
-    import { logoutUser } from './js/auth.js';
+        import { auth, onAuthStateChanged } from './js/firebase-config.js';
+        import { logoutUser } from './js/auth.js';
 
-    // Update user info on dashboard
-    onAuthStateChanged(auth, (user) => {
-        if (user) {
-            // Update welcome message
-            const welcomeUsername = document.getElementById('welcomeUsername');
-            if (welcomeUsername) {
-                welcomeUsername.textContent = user.displayName || user.email;
+        // Update user info on dashboard
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                // Update welcome message
+                const welcomeUsername = document.getElementById('welcomeUsername');
+                if (welcomeUsername) {
+                    welcomeUsername.textContent = user.displayName || user.email;
+                }
+
+                // Update sidebar username
+                const sidebarUsername = document.getElementById('sidebarUsername');
+                if (sidebarUsername) {
+                    sidebarUsername.textContent = user.displayName || user.email;
+                }
             }
+        });
 
-            // Update sidebar username
-            const sidebarUsername = document.getElementById('sidebarUsername');
-            if (sidebarUsername) {
-                sidebarUsername.textContent = user.displayName || user.email;
+        // Logout functionality
+        window.logout = async function () {
+            if (confirm('Are you sure you want to logout?')) {
+                try {
+                    await logoutUser();
+                    window.location.href = 'index.html';
+                } catch (error) {
+                    console.error('Logout error:', error);
+                    alert('Logout failed. Please try again.');
+                }
             }
-        }
-    });
+        };
 
-    // Logout functionality
-    window.logout = async function() {
-        if (confirm('Are you sure you want to logout?')) {
-            try {
-                await logoutUser();
-                window.location.href = 'index.html';
-            } catch (error) {
-                console.error('Logout error:', error);
-                alert('Logout failed. Please try again.');
+        // Attach logout to button
+        document.addEventListener('DOMContentLoaded', () => {
+            const logoutBtn = document.getElementById('logoutBtn');
+            if (logoutBtn) {
+                logoutBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    window.logout();
+                });
             }
-        }
-    };
-
-    // Attach logout to button
-    document.addEventListener('DOMContentLoaded', () => {
-        const logoutBtn = document.getElementById('logoutBtn');
-        if (logoutBtn) {
-            logoutBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                window.logout();
-            });
-        }
-    });
-</script>
+        });
+    </script>
     <script src="js/auth-state.js"></script>
     <script src="js/main.js"></script>
     <script src="js/dashboard.js"></script>
 </body>
+
 </html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | Trade2Retire</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/services.css">
+    <link rel="icon" type="image/png" href="assets/T2Rlogo.png">
+</head>
+<body>
+    <div class="app-container">
+        <nav class="main-nav">
+            <div class="nav-brand">
+                <i class="fas fa-graduation-cap brand-icon"></i>
+                <a href="index.html" class="brand-link">Trade2Retire</a>
+            </div>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="services.html" class="nav-link active">Services</a>
+                <a href="login.htm" class="nav-link">Login</a>
+                <a href="register.htm" class="nav-link">Register</a>
+            </div>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+
+        <main class="services-main">
+            <div class="hero-section">
+                <h1>EMPOWERING LIVES, IMPACTING SOCIETY</h1>
+                <p>Choose the program that best fits your trading journey</p>
+            </div>
+
+            <div class="services-grid">
+                <!-- Beginner to Pro Trader Program -->
+                <div class="service-card" data-service="beginner">
+                    <div class="service-image">
+                        <img src="assets\IMG-20250804-WA0009.jpg" alt="Beginner to Pro Trader Program">
+                    </div>
+                    <div class="service-content">
+                        <h2>BEGINNER TO PRO TRADER PROGRAM</h2>
+                        <p>Unlock the complete journey—from total novice to confident, skilled trader—in just 2 months.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Chart reading fundamentals</li>
+                            <li><i class="fas fa-check"></i> Technical analysis</li>
+                            <li><i class="fas fa-check"></i> Risk management</li>
+                            <li><i class="fas fa-check"></i> Strategy building</li>
+                            <li><i class="fas fa-check"></i> Trading psychology</li>
+                            <li><i class="fas fa-check"></i> Live execution training</li>
+                        </ul>
+                        <button class="learn-more-btn">Learn More</button>
+                    </div>
+                </div>
+
+                <!-- VIP 1-on-1 Mentorship -->
+                <div class="service-card" data-service="vip">
+                    <div class="service-image">
+                        <img src="assets\IMG-20250804-WA0008.jpg" alt="VIP 1-on-1 Mentorship">
+                    </div>
+                    <div class="service-content">
+                        <h2>VIP 1-ON-1 MENTORSHIP</h2>
+                        <p>Step into elite trading with our private mentorship program. Get personalized guidance from expert traders.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Personalized learning path</li>
+                            <li><i class="fas fa-check"></i> Direct access to mentors</li>
+                            <li><i class="fas fa-check"></i> Real-time trade analysis</li>
+                            <li><i class="fas fa-check"></i> Strategy refinement</li>
+                            <li><i class="fas fa-check"></i> Performance tracking</li>
+                        </ul>
+                        <button class="learn-more-btn">Learn More</button>
+                    </div>
+                </div>
+
+                <!-- AI Trading Masterclass -->
+                <div class="service-card" data-service="ai">
+                    <div class="service-image">
+                        <img src="assets\IMG-20250804-WA0005.jpg" alt="AI Trading Masterclass">
+                    </div>
+                    <div class="service-content">
+                        <h2>AI TRADING MASTERCLASS</h2>
+                        <p>Step into elite trading with our advanced AI-powered strategies and tools.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> AI market analysis</li>
+                            <li><i class="fas fa-check"></i> Automated strategies</li>
+                            <li><i class="fas fa-check"></i> Pattern recognition</li>
+                            <li><i class="fas fa-check"></i> Risk optimization</li>
+                            <li><i class="fas fa-check"></i> Algorithmic trading</li>
+                        </ul>
+                        <button class="learn-more-btn">Learn More</button>
+                    </div>
+                </div>
+
+                <!-- Gold Masterclass -->
+                <div class="service-card" data-service="gold">
+                    <div class="service-image">
+                        <img src="assets\IMG-20250804-WA0004.jpg" alt="Gold Masterclass">
+                    </div>
+                    <div class="service-content">
+                        <h2>GOLD MASTERCLASS</h2>
+                        <p>Master the art of trading gold with our comprehensive masterclass program.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Gold market dynamics</li>
+                            <li><i class="fas fa-check"></i> Technical analysis for gold</li>
+                            <li><i class="fas fa-check"></i> Risk management</li>
+                            <li><i class="fas fa-check"></i> Trading strategies</li>
+                            <li><i class="fas fa-check"></i> Market timing</li>
+                        </ul>
+                        <button class="learn-more-btn">Learn More</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service Details Modal -->
+            <div class="modal" id="serviceModal">
+                <div class="modal-content">
+                    <span class="close-btn">&times;</span>
+                    <div class="modal-body">
+                        <!-- Content will be dynamically inserted here -->
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="main-footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-brand">
+                        <i class="fas fa-graduation-cap brand-icon"></i>
+                        <span>Trade2Retire</span>
+                    </div>
+                    <div class="footer-links">
+                        <div class="link-group">
+                            <h4>Learn</h4>
+                            <a href="course-list.htm">Courses</a>
+                            <a href="#">Tutorials</a>
+                            <a href="#">Resources</a>
+                        </div>
+                        <div class="link-group">
+                            <h4>Company</h4>
+                            <a href="https://trade2retire.org/about/">About</a>
+                            <a href="https://trade2retire.org/disclaimer/">Disclaimer</a>
+                            <a href="https://wa.me/+2349161419928">Contact</a>
+                        </div>
+                        <div class="link-group">
+                            <h4>Support</h4>
+                            <a href="https://wa.me/2348067056395" target="_blank">Help Center</a>
+                            <a href="faq.htm">FAQ</a>
+                            <a href="https://chat.whatsapp.com/GhYt7VgvVfBFYwyvecnIlj?mode=ac_c" target="_blank">Community</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2025 Trade2Retire. All rights reserved.</p>
+                    <div class="social-links">
+                        <a href="https://x.com/Trade2Retire_"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.facebook.com/Trade2Retire"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://www.instagram.com/trade2retire_"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="js/services.js"></script>
+</body>
+</html>

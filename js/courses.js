@@ -15,19 +15,19 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         {
             id: 2,
-            title: "CRT",
-            instructor: "Bishop Fisayo",
+            title: "Indicator System",
+            instructor: "Ochidi Prince",
             rating: 4.7,
             students: 620,
             duration: "18 hours",
             image: "assets/NAS100_2025-04-23_18-32-28.png",
             isNew: false,
             price: 0,
-            category: "CRT"
+            category: "Indicator System"
         },
         {
             id: 3,
-            title: "Depature Leg",
+            title: "Technical Analysis",
             instructor: "Kufre",
             rating: 4.9,
             students: 450,
@@ -35,8 +35,22 @@ document.addEventListener('DOMContentLoaded', function() {
             image: "assets/NAS100_2025-04-23_18-32-28.png",
             isNew: false,
             price: 0,
-            category: "Depature leg"
+            category: "Technical Analysis"
         },
+
+        {
+            id: 3,
+            title: "Trading for Beginners",
+            instructor: "Kufre",
+            rating: 4.9,
+            students: 450,
+            duration: "25 hours",
+            image: "assets/NAS100_2025-04-23_18-32-28.png",
+            isNew: false,
+            price: 0,
+            category: "Trading for Beginners"
+        },
+
         {
             id: 4,
             title: "Gold Masterclass",
@@ -87,7 +101,6 @@ document.addEventListener('DOMContentLoaded', function() {
                         <span><i class="fas fa-clock"></i> ${course.duration}</span>
                     </div>
                     <div class="course-footer">
-                        <span class="price">$${course.price.toFixed(2)}</span>
                         <button class="btn btn-outline btn-sm">View Course</button>
                     </div>
                 </div>
@@ -109,8 +122,26 @@ document.addEventListener('DOMContentLoaded', function() {
         document.querySelectorAll('.course-card .btn-outline').forEach(btn => {
             btn.addEventListener('click', function(e) {
                 e.stopPropagation();
-                const courseId = this.closest('.course-card').getAttribute('onclick').match(/\d+/)[0];
-                window.location.href = `courses-course-${courseId}.htm`;
+                const currentPath = window.location.pathname;
+                const currentPage = currentPath.split('/').pop().replace('/', '');
+                
+                if (currentPage === 'course-listI.htm') {
+                    // On course-listI.htm, redirect to register
+                    window.location.href = 'register.htm';
+                } else if (currentPage === 'course-list.htm') {
+                    // On course-list.htm, go to specific course page
+                    const card = this.closest('.course-card');
+                    const course = courses.find(c => 
+                        card.querySelector('h3').textContent === c.title
+                    );
+                    if (course) {
+                        window.location.href = `courses-course-${course.id}.htm`;
+                    }
+                } else {
+                    // On other pages, maintain default behavior
+                    const courseId = this.closest('.course-card').getAttribute('onclick').match(/\d+/)[0];
+                    window.location.href = `courses-course-${courseId}.htm`;
+                }
             });
         });
     }

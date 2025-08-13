@@ -19,7 +19,7 @@
             </div>
             <div class="nav-links">
                 <a href="index.html" class="nav-link active">Home</a>
-                <a href="#" class="nav-link">Features</a>
+                <a href="services.html" class="nav-link">Services</a>
                 <div id="authLinks">
                     <a href="login.htm" class="nav-link auth-link">Student Login</a>
                     <a href="register.htm" class="nav-link auth-link primary">Student Register</a>
@@ -54,7 +54,7 @@
                     financial independence</p>
                 <div class="hero-actions">
                     <a href="register.htm" class="btn btn-yellow">Start Learning</a>
-                    <a href="course-listI.htm" class="btn btn-outline">Browse Courses</a>
+                    <a href="course-listI.htm" class="btn btn-outline">View Program</a>
                 </div>
                 <div class="admin-access">
                     <p>Are you an instructor? <a href="admin-login.htm">Access Admin Portal</a></p>
@@ -116,7 +116,7 @@
                         </div>
                         <div class="link-group">
                             <h4>Support</h4>
-                            <a href="https://wa.me/2348067056395" target="_blank">Help Center</a> 
+                            <a href="https://wa.me/2348067056395" target="_blank">Help Center</a>
                             <a href="faq.htm">FAQ</a>
                             <a href="https://chat.whatsapp.com/GhYt7VgvVfBFYwyvecnIlj?mode=ac_c"
                                 target="_blank">Community</a>
@@ -137,51 +137,51 @@
     </div>
 
     <script type="module">
-      // Import the functions you need from the SDKs you need
-      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
-      import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-analytics.js";
-      import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
-      import { getFirestore } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-analytics.js";
+        import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
+        import { getFirestore } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
 
-      // Your web app's Firebase configuration
-      const firebaseConfig = {
-        apiKey: "AIzaSyDgFEObhGb7pTqoNPc2PljcWrFN4vYm-qg",
-        authDomain: "t2r-lms.firebaseapp.com",
-        projectId: "t2r-lms",
-        storageBucket: "t2r-lms.firebasestorage.app",
-        messagingSenderId: "684814093970",
-        appId: "1:684814093970:web:f6ec43e88106e74695604b",
-        measurementId: "G-ZDJ1KEDGQ4"
-      };
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyDgFEObhGb7pTqoNPc2PljcWrFN4vYm-qg",
+            authDomain: "t2r-lms.firebaseapp.com",
+            projectId: "t2r-lms",
+            storageBucket: "t2r-lms.firebasestorage.app",
+            messagingSenderId: "684814093970",
+            appId: "1:684814093970:web:f6ec43e88106e74695604b",
+            measurementId: "G-ZDJ1KEDGQ4"
+        };
 
-      // Initialize Firebase
-      const app = initializeApp(firebaseConfig);
-      const analytics = getAnalytics(app);
-      const auth = getAuth(app);
-      const db = getFirestore(app);
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
 
-      // Listen for auth state changes
-      onAuthStateChanged(auth, (user) => {
-        const authLinks = document.getElementById('authLinks');
-        const userMenu = document.getElementById('userMenu');
-        
-        if (user) {
-          // User is signed in
-          if (authLinks) authLinks.style.display = 'none';
-          if (userMenu) {
-            userMenu.style.display = 'block';
-            const usernameDisplay = document.getElementById('usernameDisplay');
-            if (usernameDisplay) usernameDisplay.textContent = user.email;
-          }
-        } else {
-          // User is signed out
-          if (authLinks) authLinks.style.display = 'block';
-          if (userMenu) userMenu.style.display = 'none';
-        }
-      });
+        // Listen for auth state changes
+        onAuthStateChanged(auth, (user) => {
+            const authLinks = document.getElementById('authLinks');
+            const userMenu = document.getElementById('userMenu');
+
+            if (user) {
+                // User is signed in
+                if (authLinks) authLinks.style.display = 'none';
+                if (userMenu) {
+                    userMenu.style.display = 'block';
+                    const usernameDisplay = document.getElementById('usernameDisplay');
+                    if (usernameDisplay) usernameDisplay.textContent = user.email;
+                }
+            } else {
+                // User is signed out
+                if (authLinks) authLinks.style.display = 'block';
+                if (userMenu) userMenu.style.display = 'none';
+            }
+        });
     </script>
     <script src="js/auth-state.js"></script>
     <script src="js/main.js"></script>
 </body>
 
-</html> 
+</html>

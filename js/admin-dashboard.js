@@ -1,15 +1,4 @@
 // admin-dashboard.js - Complete working solution with mobile fixes
-function updateAdminNameUI() {
-    const currentAdmin = JSON.parse(sessionStorage.getItem('adminUser'));
-    if (!currentAdmin) return;
-    const welcomeName = document.getElementById('welcomeAdminName');
-    if (welcomeName) welcomeName.textContent = currentAdmin.name;
-    const sidebarName = document.getElementById('sidebarAdminName');
-    if (sidebarName) sidebarName.textContent = currentAdmin.name;
-    const adminNameDisplay = document.getElementById('adminNameDisplay');
-    if (adminNameDisplay) adminNameDisplay.textContent = currentAdmin.name;
-}
-
 document.addEventListener('DOMContentLoaded', function() {
     const currentAdmin = JSON.parse(sessionStorage.getItem('adminUser'));
     if (!currentAdmin) {
@@ -123,7 +112,10 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Update welcome message with admin name
-    updateAdminNameUI();
+    const welcomeName = document.getElementById('welcomeAdminName');
+    if (welcomeName) {
+        welcomeName.textContent = currentAdmin.name;
+    }
 
     // Show/hide elements based on admin role
     if (currentAdmin.role !== 'superadmin') {
@@ -138,15 +130,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Setup admin logout
     setupAdminLogout();
-
-    // Listen for storage changes (from settings page)
-    window.addEventListener('storage', function(e) {
-        if (e.key === 'adminUser') {
-            updateAdminNameUI();
-        }
-    });
-    // Also update on page focus (in case of same-tab update)
-    window.addEventListener('focus', updateAdminNameUI);
 });
 
 // Move this outside the DOMContentLoaded event to make it globally available

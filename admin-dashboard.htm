@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
     <link rel="stylesheet" href="css/admin.css">
     <link rel="icon" type="image/png" href="assets/T2Rlogo.png">
 </head>
+
 <body>
     <div class="app-container">
         <nav class="main-nav">
@@ -27,8 +29,10 @@
                         <i class="fas fa-chevron-down"></i>
                     </button>
                     <div class="dropdown-menu">
-                        <a href="admin-dashboard.htm" class="dropdown-item"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
-                        <a href="#" class="dropdown-item" id="adminLogoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                        <a href="admin-dashboard.htm" class="dropdown-item"><i class="fas fa-tachometer-alt"></i>
+                            Dashboard</a>
+                        <a href="#" class="dropdown-item" id="adminLogoutBtn"><i class="fas fa-sign-out-alt"></i>
+                            Logout</a>
                     </div>
                 </div>
             </div>
@@ -52,12 +56,16 @@
                     <i class="fas fa-users"></i>
                     <span>Students</span>
                 </a>
+                <a href="admin-tests.htm" class="toolbar-link">
+                    <i class="fas fa-clipboard-check"></i>
+                    <span>Tests & Quizzes</span>
+                </a>
             </div>
             <div class="toolbar-actions">
-                <button class="btn btn-outline btn-sm">
+                <a href="https://wa.me/2348067056395" target="_blank" class="btn btn-outline btn-sm help-link">
                     <i class="fas fa-question-circle"></i>
                     <span>Help</span>
-                </button>
+                </a>
             </div>
         </div>
 
@@ -87,9 +95,9 @@
                         <i class="fas fa-users"></i>
                         <span>Students</span>
                     </a>
-                    <a href="admin-messages.htm" class="sidebar-link">
+                    <!-- <a href="admin-messages.htm" class="sidebar-link">
                         <i class="fas fa-comments"></i>
-                        <span>Messages</span>
+                        <span>Messages</span> -->
                     </a>
                     <a href="admin-tests.htm" class="sidebar-link">
                         <i class="fas fa-clipboard-check"></i>
@@ -110,9 +118,9 @@
 
                 <div class="content-header">
                     <h1>Dashboard Overview</h1>
-                    <button class="btn btn-yellow">
+                    <!-- <button class="btn btn-yellow">
                         <i class="fas fa-plus"></i> Quick Action
-                    </button>
+                    </button> -->
                 </div>
 
                 <section class="stats-section">
@@ -194,34 +202,35 @@
         </footer>
     </div>
     <script>
-    // Mobile menu fix
-    document.addEventListener('DOMContentLoaded', function() {
-        const menuToggle = document.getElementById('menuToggle');
-        const sidebar = document.querySelector('.sidebar');
+        // Mobile menu fix
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuToggle = document.getElementById('menuToggle');
+            const sidebar = document.querySelector('.sidebar');
 
-        if (menuToggle && sidebar) {
-            menuToggle.addEventListener('click', function() {
-                sidebar.classList.toggle('active');
-            });
-
-            // Close when clicking on sidebar links
-            document.querySelectorAll('.sidebar-link').forEach(link => {
-                link.addEventListener('click', function() {
-                    if (window.innerWidth <= 768) {
-                        sidebar.classList.remove('active');
-                    }
+            if (menuToggle && sidebar) {
+                menuToggle.addEventListener('click', function () {
+                    sidebar.classList.toggle('active');
                 });
-            });
-        }
-    });
-</script>
+
+                // Close when clicking on sidebar links
+                document.querySelectorAll('.sidebar-link').forEach(link => {
+                    link.addEventListener('click', function () {
+                        if (window.innerWidth <= 768) {
+                            sidebar.classList.remove('active');
+                        }
+                    });
+                });
+            }
+        });
+    </script>
     <script src="js/admin-auth-state.js"></script>
     <script src="js/admin-dashboard.js"></script>
     <script>
         // Initialize mobile menu on page load
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             initAdminMobileMenu();
         });
     </script>
 </body>
+
 </html>

@@ -12,6 +12,21 @@
     margin-bottom: 2rem;
 }
 
+.course-banner {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    border-radius: var(--radius-md);
+    margin-bottom: 2rem;
+}
+
+.course-banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
 .course-hero h1 {
     margin-bottom: 0.5rem;
 }
